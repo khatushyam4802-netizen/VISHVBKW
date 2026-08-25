@@ -13,12 +13,42 @@ n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}
-(window, document,'script',
+s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
 fbq('init', '1780894626555571');
 fbq('track', 'PageView');
+
+/* Pixel + Conversions API */
+function trackLead() {
+
+  const eventId =
+    'lead_' + Date.now() + '_' +
+    Math.random().toString(36).substring(2);
+
+  /* Browser Pixel */
+  fbq(
+    'track',
+    'Lead',
+    {},
+    { eventID: eventId }
+  );
+
+  /* Server-side Conversions API */
+  fetch('/api/meta-capi', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      event_name: 'Lead',
+      event_id: eventId,
+      event_source_url: window.location.href
+    })
+  }).catch(function(error) {
+    console.log('CAPI error:', error);
+  });
+}
 </script>
 
 <noscript>
@@ -202,7 +232,7 @@ For Girls • Housewives • Students
 
 <a href="https://t.me/+OzPpIZC3ucw0ZDI9"
 target="_blank"
-onclick="fbq('track','Lead');"
+onclick="trackLead();"
 class="btn">
 📱 Join Telegram & Get Project Details
 </a>
@@ -243,7 +273,7 @@ class="btn">
 
 <a href="https://t.me/+OzPpIZC3ucw0ZDI9"
 target="_blank"
-onclick="fbq('track','Lead');"
+onclick="trackLead();"
 class="btn">
 🚀 Apply Now
 </a>
