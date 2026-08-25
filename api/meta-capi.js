@@ -6,83 +6,54 @@ export default async function handler(req, res) {
   }
 
   try {
-    const {
-      event_name,
-      event_id,
-      event_source_url
-    } = req.body || {};
-
     const pixelId = process.env.META_PIXEL_ID;
     const accessToken = process.env.META_ACCESS_TOKEN;
 
-    if (!pixelId) {
+    if (!pixelId || !accessToken) {
       return res.status(500).json({
-        error: "META_PIXEL_ID is missing"
+        error: "Environment variable missing"
       });
     }
 
-    if (!accessToken) {
-      return res.status(500).json({
-        error: "META_ACCESS_TOKEN is missing"
-      });
-    }
+    const body = req.body || {};
 
-    const eventData = {
-      event_name: event_name || "Lead",
+    const event = {
+      event_name: body.event_name || "Lead",
       event_time: Math.floor(Date.now() / 1000),
-      event_id: event_id || `lead_${Date.now()}`,
+      event_id: body.event_id || `lead_${Date.now()}`,
       action_source: "website",
       event_source_url:
-        event_source_url || "https://vishvbkw.vercel.app/"
+        body.event_source_url || "https://vishvbkw.vercel.app/"
     };
 
-    const metaUrl =
-      `https://graph.facebook.com/v23.0/${pixelId}/events`;
+    const url =
+      `https://graph.facebook.com/v23.0/${pixelId}/events` +
+      `?access_token=${encodeURIComponent(accessToken)}`;
 
-    const response = await fetch(metaUrl, {
+    const metaResponse = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        data: [eventData],
-        access_token: accessToken
+        data: [event]
       })
     });
 
-    const result = await response.json();
+    const text = await metaResponse.text();
 
-    console.log(
-      "META CAPI STATUS:",
-      response.status
-    );
+    console.log("META STATUS:", metaResponse.status);
+    console.log("META RESPONSE:", text);
 
-    console.log(
-      "META CAPI RESPONSE:",
-      JSON.stringify(result)
-    );
-
-    if (!response.ok) {
-      return res.status(response.status).json({
-        success: false,
-        meta_status: response.status,
-        meta_response: result
-      });
-    }
-
-    return res.status(200).json({
-      success: true,
-      meta_response: result
+    return res.status(metaResponse.status).json({
+      meta_status: metaResponse.status,
+      meta_response: text
     });
 
   } catch (error) {
-    console.error(
-      "CAPI SERVER ERROR:",
-      error
-    );
+    console.error("SERVER ERROR:", error);
 
     return res.status(500).json({
-      success: false,
       error: error.message
     });
   }
