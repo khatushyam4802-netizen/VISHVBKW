@@ -1,288 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vishv Books Publications</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+  <title>Vishav Book Publications | Handwriting Jobs</title>
 
-fbq('init', '1780894626555571');
-fbq('track', 'PageView');
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
 
-/* Pixel + Conversions API */
-function trackLead() {
+  fbq('init', '2105604533359823');
+  fbq('track', 'PageView');
+  </script>
 
-  const eventId =
-    'lead_' + Date.now() + '_' +
-    Math.random().toString(36).substring(2);
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2105604533359823&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
 
-  /* Browser Pixel */
-  fbq(
-    'track',
-    'Lead',
-    {},
-    { eventID: eventId }
-  );
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-  /* Server-side Conversions API */
-  fetch('/api/meta-capi', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      event_name: 'Lead',
-      event_id: eventId,
-      event_source_url: window.location.href
-    })
-  }).catch(function(error) {
-    console.log('CAPI error:', error);
-  });
-}
-</script>
+    body {
+      background: #f5f5f5;
+      color: #222;
+    }
 
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1780894626555571&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
+    .header {
+      background: #b30000;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+    .header h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
 
-body{
-background:#f4f6fb;
-color:#222;
-}
+    .header p {
+      font-size: 15px;
+    }
 
-.container{
-max-width:520px;
-margin:auto;
-padding:15px;
-}
+    .hero {
+      background: white;
+      text-align: center;
+      padding: 35px 20px;
+    }
 
-.notice{
-background:#fff4d6;
-color:#b57b00;
-padding:12px;
-text-align:center;
-font-size:14px;
-font-weight:600;
-border-radius:10px;
-margin-top:10px;
-}
+    .hero h2 {
+      font-size: 28px;
+      color: #b30000;
+      margin-bottom: 12px;
+    }
 
-.hero{
-background:#fff;
-border-radius:20px;
-padding:20px;
-margin-top:15px;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
-}
+    .hero p {
+      font-size: 17px;
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
 
-.logo{
-text-align:center;
-font-size:24px;
-font-weight:700;
-color:#1565c0;
-margin-bottom:10px;
-}
+    .join-btn {
+      display: inline-block;
+      background: #0088cc;
+      color: white;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 8px;
+    }
 
-.badge{
-background:#ff4f9a;
-color:#fff;
-padding:8px 15px;
-border-radius:30px;
-display:inline-block;
-font-size:13px;
-font-weight:700;
-}
+    .section {
+      padding: 30px 15px;
+      max-width: 900px;
+      margin: auto;
+    }
 
-.center{
-text-align:center;
-}
+    .section h2 {
+      text-align: center;
+      color: #b30000;
+      margin-bottom: 25px;
+      font-size: 25px;
+    }
 
-h1{
-font-size:28px;
-line-height:1.3;
-margin-top:15px;
-}
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
 
-.sub{
-font-size:15px;
-color:#666;
-margin-top:8px;
-}
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.10);
+      text-align: center;
+    }
 
-.salary{
-background:#eafaf0;
-border:1px solid #b6e8c5;
-padding:12px;
-border-radius:12px;
-margin-top:15px;
-font-size:15px;
-font-weight:700;
-color:#0d8a43;
-text-align:center;
-}
+    .card h3 {
+      color: #b30000;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
 
-.btn{
-display:block;
-width:100%;
-background:linear-gradient(90deg,#008cff,#00b7ff);
-color:white;
-text-decoration:none;
-padding:15px;
-text-align:center;
-border-radius:50px;
-font-size:16px;
-font-weight:700;
-margin-top:15px;
-}
+    .card p {
+      line-height: 1.6;
+      font-size: 15px;
+    }
 
-.card{
-background:white;
-padding:15px;
-border-radius:15px;
-margin-top:12px;
-box-shadow:0 4px 15px rgba(0,0,0,.05);
-font-size:14px;
-line-height:1.8;
-}
+    .steps {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
 
-.section-title{
-font-size:18px;
-font-weight:700;
-margin-bottom:10px;
-}
+    .step {
+      padding: 13px 0;
+      border-bottom: 1px solid #ddd;
+      font-size: 16px;
+    }
 
-.faq{
-background:white;
-padding:15px;
-border-radius:15px;
-margin-top:12px;
-box-shadow:0 4px 15px rgba(0,0,0,.05);
-}
+    .step:last-child {
+      border-bottom: none;
+    }
 
-.q{
-font-weight:700;
-margin-bottom:5px;
-font-size:14px;
-}
+    .notice {
+      background: #fff3cd;
+      border-left: 5px solid #ffb300;
+      padding: 18px;
+      margin-top: 25px;
+      line-height: 1.6;
+      border-radius: 5px;
+    }
 
-.a{
-font-size:13px;
-color:#555;
-margin-bottom:10px;
-}
+    .cta {
+      background: #b30000;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+      margin-top: 20px;
+    }
 
-.footer{
-text-align:center;
-font-size:12px;
-color:#777;
-padding:20px 0;
-}
-</style>
+    .cta h2 {
+      margin-bottom: 12px;
+      font-size: 25px;
+    }
+
+    .cta p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .cta .join-btn {
+      background: white;
+      color: #0088cc;
+    }
+
+    footer {
+      background: #222;
+      color: #ddd;
+      text-align: center;
+      padding: 18px 10px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .hero h2 {
+        font-size: 24px;
+      }
+
+      .join-btn {
+        width: 90%;
+        max-width: 350px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+  <header class="header">
+    <h1>VISHAV BOOK PUBLICATIONS</h1>
+    <p>Handwriting Jobs • Assignment Writing • Work From Home</p>
+  </header>
 
-<div class="notice">
-🔥 Limited Openings Available Today
-</div>
+  <section class="hero">
+    <h2>✍️ Handwriting Jobs</h2>
 
-<div class="hero">
+    <p>
+      Work from home handwriting and assignment writing opportunities.
+      Get project updates, work information and application details
+      through our Telegram channel.
+    </p>
 
-<div class="center">
-<span class="badge">ONLY FEMALE CANDIDATES</span>
-</div>
+    <a
+      href="https://t.me/+LU4qJHYxpqIzZGM1"
+      class="join-btn"
+      target="_blank"
+      rel="noopener noreferrer">
+      JOIN NOW ON TELEGRAM
+    </a>
+  </section>
 
-<div class="logo">
-Vishv Books Publications
-</div>
+  <section class="section">
+    <h2>📚 Work Opportunities</h2>
 
-<h1 class="center">
-✍️ Handwriting Work From Home
-</h1>
+    <div class="cards">
 
-<p class="sub center">
-For Girls • Housewives • Students
-</p>
+      <div class="card">
+        <h3>✍️ Handwriting Work</h3>
+        <p>
+          Handwriting-based project opportunities that can be
+          completed from home.
+        </p>
+      </div>
 
-<div class="salary">
-💰 Monthly Earnings ₹25,000 – ₹45,000
-</div>
+      <div class="card">
+        <h3>📖 Assignment Writing</h3>
+        <p>
+          Assignment writing projects and related work updates
+          are shared through the Telegram channel.
+        </p>
+      </div>
 
-<a href="https://t.me/+OzPpIZC3ucw0ZDI9"
-target="_blank"
-onclick="trackLead();"
-class="btn">
-📱 Join Telegram & Get Project Details
-</a>
+      <div class="card">
+        <h3>🏠 Work From Home</h3>
+        <p>
+          Flexible work opportunities suitable for people
+          looking for home-based projects.
+        </p>
+      </div>
 
-</div>
+    </div>
+  </section>
 
-<div class="card">
-<div class="section-title">Job Details</div>
-✅ No Experience Required<br>
-✅ Work From Home Opportunity<br>
-✅ Flexible Working Hours<br>
-✅ Daily & Weekly Payment Options<br>
-✅ Female Candidates Only<br>
-✅ Training Support Available
-</div>
+  <section class="section">
+    <h2>📋 How To Get Updates</h2>
 
-<div class="card">
-<div class="section-title">Why Join Us?</div>
-⭐ Trusted & Genuine Opportunity<br>
-⭐ Beginner Friendly Work<br>
-⭐ Easy Joining Process<br>
-⭐ Support Team Available
-</div>
+    <div class="steps">
 
-<div class="faq">
-<div class="section-title">Frequently Asked Questions</div>
+      <div class="step">
+        <strong>Step 1:</strong> Click on the Join Now button.
+      </div>
 
-<div class="q">Is experience required?</div>
-<div class="a">No, freshers can apply.</div>
+      <div class="step">
+        <strong>Step 2:</strong> Join the Vishav Book Publications Telegram channel.
+      </div>
 
-<div class="q">Who can apply?</div>
-<div class="a">Girls, students and housewives.</div>
+      <div class="step">
+        <strong>Step 3:</strong> Check the latest project and work updates.
+      </div>
 
-<div class="q">How do I get details?</div>
-<div class="a">Join our Telegram channel for complete information.</div>
+      <div class="step">
+        <strong>Step 4:</strong> Follow the instructions provided for the available project.
+      </div>
 
-</div>
+    </div>
 
-<a href="https://t.me/+OzPpIZC3ucw0ZDI9"
-target="_blank"
-onclick="trackLead();"
-class="btn">
-🚀 Apply Now
-</a>
+    <div class="notice">
+      <strong>Important:</strong><br>
+      Please read all project details, eligibility requirements,
+      deadlines and terms carefully before accepting any work.
+    </div>
+  </section>
 
-<div class="footer">
-© 2026 Vishv Books Publications
-</div>
+  <section class="cta">
+    <h2>✍️ Interested in Handwriting Work?</h2>
 
-</div>
+    <p>
+      Join our Telegram channel to receive the latest
+      handwriting and assignment work updates.
+    </p>
 
-</body>
-</html>
+    <a
+      href="https://t.me/+7ULNd5juPLU0MGU1"
+      class="join-btn"
+      target="_blank"
+      rel="noopener noreferrer">
+      JOIN NOW
